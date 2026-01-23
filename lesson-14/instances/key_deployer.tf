@@ -2,13 +2,13 @@
 
 resource "aws_key_pair" "deployer_ohio" {
   key_name   = "ssh_key"
-  # Enter your key here
-  public_key = "ssh-rsa AAAA..."
+  # Enter your key here within the double-quotes
+  public_key = ""
 }
 
 resource "aws_key_pair" "deployer_virginia" {
-  provider = aws.virginia
+  provider   = aws.virginia
   key_name   = "ssh_key"
-  # Enter your key here
-  public_key = "ssh-rsa AAAA..."
+  # Enter your key here within the double-quotes
+  public_key = ""
 }

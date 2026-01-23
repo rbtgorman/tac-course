@@ -6,15 +6,15 @@ locals {
 }
 
 resource "aws_security_group" "sg_webserver_ohio" {
-  name = "webserver-sg-ohio"
+  name        = "webserver-sg-ohio"
   description = "Security Group Ports for Web Servers"
 
   dynamic "ingress" {
     for_each = local.inbound_ports
     content {
-      from_port = ingress.value
-      to_port = ingress.value
-      protocol = "tcp"
+      from_port   = ingress.value
+      to_port     = ingress.value
+      protocol    = "tcp"
       cidr_blocks = ["0.0.0.0/0"]
     }
   }
@@ -22,25 +22,25 @@ resource "aws_security_group" "sg_webserver_ohio" {
   dynamic "egress" {
     for_each = local.outbound_ports
     content {
-      from_port = egress.value
-      to_port = egress.value
-      protocol = "tcp"
+      from_port   = egress.value
+      to_port     = egress.value
+      protocol    = "tcp"
       cidr_blocks = ["0.0.0.0/0"]
     }
   }
 }
 
 resource "aws_security_group" "sg_webserver_virginia" {
-  provider = aws.virginia
-  name = "webserver-sg-virgina"
+  provider    = aws.virginia
+  name        = "webserver-sg-virginia"
   description = "Security Group Ports for Web Servers"
 
   dynamic "ingress" {
     for_each = local.inbound_ports
     content {
-      from_port = ingress.value
-      to_port = ingress.value
-      protocol = "tcp"
+      from_port   = ingress.value
+      to_port     = ingress.value
+      protocol    = "tcp"
       cidr_blocks = ["0.0.0.0/0"]
     }
   }
@@ -48,9 +48,9 @@ resource "aws_security_group" "sg_webserver_virginia" {
   dynamic "egress" {
     for_each = local.outbound_ports
     content {
-      from_port = egress.value
-      to_port = egress.value
-      protocol = "tcp"
+      from_port   = egress.value
+      to_port     = egress.value
+      protocol    = "tcp"
       cidr_blocks = ["0.0.0.0/0"]
     }
   }

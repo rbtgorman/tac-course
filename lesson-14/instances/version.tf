@@ -3,20 +3,20 @@ terraform {
   backend "s3" {
     # Enter the bucket name you chose previously as well as a bucket key.
     bucket = ""
-    key = ""
+    key    = ""
     region = "us-east-2"
   }
   
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "5.01"
+      version = "~> 6.26"
     }
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "=3.0.0"
+      version = "~> 4.0"
     }
   }
 
-  required_version = ">= 1.4.6"
+  required_version = ">= 1.14.0"
 }
